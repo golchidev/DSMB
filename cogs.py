@@ -37,7 +37,7 @@ class captch(commands.Cog):
                 return
 
             if msg.content == a: #인증 완료
-                embed = discord.Embed(description="<a:Success_gif:833555731101909002> 인증이 완료 되었습니다. 5초뒤에 인증 역할을 지급 합니다.", color=0x43B481)
+                embed = discord.Embed(description="<a:Success_gif:833555731101909002> 인증이 완료 되었습니다. 5초뒤에 역할을 지급 합니다.", color=0x43B481)
                 await message.channel.send(embed=embed)
 
                 await asyncio.sleep(5)
