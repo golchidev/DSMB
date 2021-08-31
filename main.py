@@ -48,18 +48,18 @@ async def on_message(message):
                 return
             
             if msg.content == a: #인증 완료
-                embed = discord.Embed(description="<a:Success_gif:833555731101909002> 인증이 완료 되었습니다. 5초뒤에 유저 역할을 지급 합니다.", color=0x43B481)
+                embed = discord.Embed(description="<a:Success_gif:833555731101909002> 인증이 완료 되었습니다. 5초뒤에 역할을 지급 합니다.", color=0x43B481)
                 await message.channel.send(embed=embed)
 
 
 
-                embed = discord.Embed(description="<a:Success_gif:833555731101909002> {}님, 인증이 완료 되었습니다. 5초뒤에 유저 역할을 지급 합니다.".format(message.author.mention), color=0x43B481)
+                embed = discord.Embed(description="<a:Success_gif:833555731101909002> {}님, 인증이 완료 되었습니다. 5초뒤에 역할을 지급 합니다.".format(message.author.mention), color=0x43B481)
                 await message.author.send(embed=embed)
 
 
 
                 await asyncio.sleep(5)
-                await message.author.add_roles(get(message.author.guild.roles, name="유저"))
+                await message.author.add_roles(get(message.author.guild.roles, name="CaptchaVerified"))
 
             else: #인증 실패
                 embed = discord.Embed(description="<a:Error_gif:833555812156309525> 인증 번호 6자리가 일치하지 않습니다. `!인증` 다시시도 해주세요!", color=0xF04947)
