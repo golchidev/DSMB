@@ -17,6 +17,13 @@ async def on_ready():
 
 @client.event #인증
 async def on_message(message):
+    
+         if message.content.startswith("!인증"):
+            embed = discord.Embed(description="{}님, [**__숫자ㅣ6자리ㅣ60초__**]".format(message.author.mention), color=0x36393F)
+            embed.set_author(name="{}님, 아래 인증번호 6자리를 숫자로만 60초 이내 입력해 주세요!".format(message.author), icon_url="https://cdn.discordapp.com/emojis/837825273793740832.gif?v=1")
+            embed.set_image(url="https://cdn.discordapp.com/attachments/840193854447550484/{message.author.id}.captcha.png")
+            await message.channel.send(embed=embed)
+    
         if message.content.startswith("!인증"):
             Image_Captcha = ImageCaptcha()
             a = ""
@@ -30,6 +37,7 @@ async def on_message(message):
             embed.set_author(name="{}님, 아래 인증번호 6자리를 숫자로만 60초 이내 입력해 주세요!".format(message.author), icon_url="https://cdn.discordapp.com/emojis/837825273793740832.gif?v=1")
             embed.set_image(url="https://cdn.discordapp.com/attachments/840193854447550484/{message.author.id}.captcha.png")
             await message.channel.send(embed=embed)
+           
 
             await message.channel.send(file=discord.File(name))
             def check(msg):
